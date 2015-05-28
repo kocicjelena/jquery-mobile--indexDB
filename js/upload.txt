@@ -1,0 +1,25 @@
+    <form>
+        <div id="queue"></div>
+        <input id="file_upload" name="file_upload" type="file" multiple="true">
+        <a style="position: relative; top: 8px;" href="javascript:$('#file_upload').uploadifive('upload')">Upload Files</a>
+    </form>
+	$(function() {
+            $('#file_upload').uploadifive({
+                'auto'         : false,
+                'formData'     : {'test' : 'something'},
+                'queueID'      : 'queue',
+                'uploadScript' : 'uploadifive.php',
+                'onUploadComplete' : function(file, data) {
+                    console.log(data);
+                }
+            });
+        });
+		#queue {
+    border: 1px solid #E5E5E5;
+    height: 177px;
+    overflow: auto;
+    margin-bottom: 10px;
+    padding: 0 3px 3px;
+    width: 300px;
+}
+http://jsfiddle.net/cainmodyo/qMcXS/

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="../js/jqm-docs.js"></script>
+	 <link rel="stylesheet" href="css/jqm-docs.css" />
+<script src="../js/jquery.js"></script>
+	<script src="js/index.js"></script>
+	<script src="../js/jquery.mobile-1.4.2.min.js"></script>
+	<script>
+$(document).on( "click", ".show-page-loading-msg", function() {
+  var $this = $( this ),
+  theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+  msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+  textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+  textonly = !!$this.jqmData( "textonly" );
+  html = $this.jqmData( "html" ) || "";
+$.mobile.loading( 'show', {
+  text: msgText,
+  textVisible: textVisible,
+  theme: theme,
+  textonly: textonly,
+  html: html
+  });
+})
+.on( "click", ".hide-page-loading-msg", function() {
+  $.mobile.loading( "hide" );
+});
+</script>
+ <script>
+$(document).on('pagebeforeshow', '#nis', function(){    
+    // Add a new select element    
+    $('<select>').attr({'name':'select-choice-sar','id':'select-choice-sar','data-native-menu':'false'}).appendTo('[data-role="header"]');
+    $('<option>').html('Select option!').appendTo('#select-choice-sar');
+    $('<option>').attr({'value':'1'}).html('1').appendTo('#select-choice-sar');
+    $('<option>').attr({'value':'2'}).html('Value 2').appendTo('#select-choice-sar');    
+    // Enhance new select element
+    $('select').selectmenu();
+    
+    $(document).on('change', '#select-choice-sar', function(){   
+    var dirName = $.mobile.path.get( $( this ).attr( "#select-choice-sar" ) );
+	var selektovanosar = $(this).find("option:selected").text();
+    $( "#myResultsar" ).text( String( dirName ) );	
+        document.querySelector("#statussar").innerHTML = selektovanosar;
+		$("#btnsar").click(function(){
+        $("#testsar").attr("href", function(i,selektovanosar){
+      document.querySelector("#hrefsar").innerHTML = "'#" + val(selektovanosar); 
+    });
+  }); 
+  $("#btn4").click(function(){
+  $('<select>').attr({'name':'select-choice-sar','id':'select-choice-sar','data-native-menu':'false'}).appendTo('[data-role="header"]');
+    $('<option>').html('Select option!').appendTo('#select-choice-sar');
+        $('<option>').attr({'value':'3'}).html('Value 3').appendTo('#select-choice-sar'); 
+		$('select').selectmenu();
+  });
+    });    
+    
+});
+
+$(document).on('pagebeforeshow', '.content-primary', function(){    
+    // Add a new select element    
+    $('<select>').attr({'name':'select-choice-sara','id':'select-choice-sara','data-native-menu':'false'}).appendTo('[data-role="content"]');
+    $('<option>').html('Select option!').appendTo('#select-choice-sara');
+    $('<option>').attr({'value':'1'}).html('1').appendTo('#select-choice-sara');
+    $('<option>').attr({'value':'2'}).html('Value 2').appendTo('#select-choice-sara');    
+    // Enhance new select element
+    $('select').selectmenu();
+    
+    $(document).on('change', '#select-choice-sara', function(){   
+    var dirName = $.mobile.path.get( $( this ).attr( "#select-choice-sara" ) );
+	var selektovanosara = $(this).find("option:selected").text();
+    $( "#myResultsara" ).text( String( dirName ) );	
+        document.querySelector("#statussara").innerHTML = selektovanosara;
+		$("#btnsara").click(function(){
+        $("#testsara").val(selektovanosara);
+  });
+  $("#btn4").click(function(){
+  $('<select>').attr({'name':'select-choice-sara','id':'select-choice-sara','data-native-menu':'false'}).appendTo('[data-role="content"]');
+    $('<option>').html('Select option!').appendTo('#select-choice-sara');
+        $('<option>').attr({'value':'3'}).html('Value 3').appendTo('#select-choice-sara'); 
+		$('select').selectmenu();
+  });
+    });    
+    
+});
+</script>
+<script>
+
+var html = "";
+html += "<div data-role=page id=win2 data-add-back-btn=true>";
+html +=   "<div data-role=header>";
+html +=     "<h1>Window 2</h1>";
+html +=   "</div>"
+html +=   "<div data-role=content>";
+html +=     "<p> Window content 2 </p>";
+html +=   "</div>";
+html += "</div>";
+
+$("body").append (html);
+
+$("#index").bind ("pagecreate", function (event)
+{
+  $.mobile.changePage ($("#win4"));
+});
+
+</script>
+</head>
+<body>
+<div data-role=page id=nis2>
+  <div data-role=header>
+    <h1>
+	<a href="status.html" data-rel="external" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">start</a>
+    <a href="saradnici.html" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">saradnici</a>
+    <a href="stat.html" data-rel="external" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">statistika</a>
+</h1>
+<h3></h3>
+		
+  <div id="statussar">status</div>
+<button id="btnsar">selektovan ZAG</button> 
+	  <input type="text" id="testsar" name="testsar" placeholder="" style="width: 13.2em; height: 3.2em; float: right;" />
+	 <a href="#hrefsar" id=link3 data-role=button> Goto Window hrefsar </a>
+  </div>
+
+  <div data-role=content>
+   <div class="content-secondary">
+   	
+ <ul data-role="listview" data-inset="true" data-theme=c data-dividertheme=b>
+				<li></li>
+					<!-- menu position helper -->
+		 
+			</ul>
+		  <button class="show-page-loading-msg" data-theme="b" data-textonly="false" data-textvisible="false" data-msgtext="" data-icon="arrow-r" data-iconpos="right">Default loader</button>
+      <button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Text only loader" data-icon="arrow-r" data-iconpos="right">Text only</button>
+      <button class="show-page-loading-msg" data-theme="b" data-textonly="false" data-textvisible="true" data-msgtext="Loading theme a" data-icon="arrow-r" data-iconpos="right">Theme a</button>
+      <button class="show-page-loading-msg" data-theme="a" data-textonly="false" data-textvisible="true" data-msgtext="Loading theme b" data-icon="arrow-r" data-iconpos="right">Theme b</button>
+      <button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Custom Loader" data-icon="arrow-r" data-html="<span class='ui-bar ui-overlay-a ui-corner-all'><img src='../_assets/images/jquery-logo.png' /><h2>is loading for you ...</h2></span>" data-iconpos="right">Custom HTML</button>
+      <button class="hide-page-loading-msg" data-icon="delete" data-iconpos="right">Hide</button>
+   
+    </div>
+	
+				<div class="content-primary">
+					
+			<nav>
+
+
+				<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+					<li></li>
+					</ul>
+				
+  <div id="statussara">status</div>
+<button id="btnsara">selektovan ZAG</button> 
+	  <input type="text" id="testsara" name="testsara" placeholder="" style="width: 13.2em; height: 3.2em; float: right;" />
+	 
+			</nav>
+		
+
+    
+	</div>
+			
+ 
+   <ul data-role="listview" data-autodividers="true" data-inset="true">
+      <li><a href="#pagetwo">Page two</a></li>
+      <li><a href="#">Billy</a></li>
+    </ul>
+    <p> Window content 1 </p>  
+			<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false">
+	
+	<ul>
+		<li data-filtertext="toolbar widget header footer toolbars fixed fullscreen external sections"><a href="../nis/" data-ajax="false">Toolbar</a></li>
+		<li data-filtertext="dynamic toolbars dynamically add toolbar header footer"><a href="../leskovac/" data-ajax="false">Dynamic toolbars</a></li>
+		<li data-filtertext="external toolbars header footer"><a href="../krusevac/" data-ajax="false">External toolbars</a></li>
+		<li data-filtertext="fixed toolbars header footer"><a href="../beograd/" data-ajax="false">Fixed toolbars</a></li>
+		<li data-filtertext="fixed fullscreen toolbars header footer"><a href="../novisad/" data-ajax="false">Fullscreen toolbars</a></li>
+		</ul>
+		</li>
+				<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false">
+	<h3></h3>
+	<ul>
+		<li data-filtertext="toolbar widget header footer toolbars fixed fullscreen external sections"><a href="../2014/" data-ajax="false">Toolbar</a></li>
+		<li data-filtertext="dynamic toolbars dynamically add toolbar header footer"><a href="../2013/" data-ajax="false">Dynamic toolbars</a></li>
+		</ul>
+		</li>
+  </div>
+<div data-role="footer">
+      <div data-role="controlgroup" data-type="horizontal">
+         	<a href="novi.html" data-rel="external" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">novi</a>
+<a href="stat.html" data-rel="external" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">izmeni</a>
+<a href="kontakt.html" data-rel="external" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-iconpos="right">kontakt</a>
+ </div>
+
+    </div> <!-- /footer --> 
+</div>
+<div data-role=page id=hrefsar>
+  <div data-role=header>
+    <h1>Home</h1>
+	<li data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false">
+	<h3></h3>
+	<ul>
+		<li data-filtertext="toolbar widget header footer toolbars fixed fullscreen external sections"><a href="../nis/" data-ajax="false">Toolbar</a></li>
+		<li data-filtertext="dynamic toolbars dynamically add toolbar header footer"><a href="../leskovac/" data-ajax="false">Dynamic toolbars</a></li>
+		<li data-filtertext="external toolbars header footer"><a href="../krusevac/" data-ajax="false">External toolbars</a></li>
+		<li data-filtertext="fixed toolbars header footer"><a href="../beograd/" data-ajax="false">Fixed toolbars</a></li>
+		<li data-filtertext="fixed fullscreen toolbars header footer"><a href="../novisad/" data-ajax="false">Fullscreen toolbars</a></li>
+		<li data-filtertext="external fixed toolbars header footer"><a href="../toolbar-fixed-external/" data-ajax="false">Fixed external toolbars</a></li>
+		<li data-filtertext="external persistent toolbars header footer navbar navmenu"><a href="../toolbar-fixed-persistent/" data-ajax="false">Persistent toolbars</a></li>
+		<li data-filtertext="external ajax optimized toolbars persistent toolbars header footer navbar"><a href="../toolbar-fixed-persistent-optimized/" data-ajax="false">Ajax optimized toolbars</a></li>
+		<li data-filtertext="form in toolbars header footer"><a href="../toolbar-fixed-forms/" data-ajax="false">Form in toolbar</a></li>
+	</ul>
+</li>
+  </div>
+
+  <div data-role=content>
+    <p> Window content 1 </p>  
+	
+  </div>
+</div>
+</body>
+</html>

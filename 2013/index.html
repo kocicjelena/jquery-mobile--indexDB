@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+   <script>
+$(document).on('pagebeforeshow', '#pageone', function(){    
+    // Add a new select element    
+    $('<select>').attr({'name':'select-choice-1','id':'select-choice-1','data-native-menu':'false'}).appendTo('[data-role="header"]');
+    $('<option>').html('Select option!').appendTo('#select-choice-1');
+    $('<option>').attr({'value':'1'}).html('1').appendTo('#select-choice-1');
+    $('<option>').attr({'value':'2'}).html('Value 2').appendTo('#select-choice-1');    
+    // Enhance new select element
+    $('select').selectmenu();
+    
+    $(document).on('change', '#select-choice-1', function(){   
+    var dirName = $.mobile.path.get( $( this ).attr( "#select-choice-1" ) );
+	var selektovano = $(this).find("option:selected").text();
+    $( "#myResult" ).text( String( dirName ) );	
+        document.querySelector("#status").innerHTML = selektovano;
+		$("#btn3").click(function(){
+        $("#test3").val(selektovano);
+  });
+  $("#btn4").click(function(){
+  $('<select>').attr({'name':'select-choice-1','id':'select-choice-1','data-native-menu':'false'}).appendTo('[data-role="header"]');
+    $('<option>').html('Select option!').appendTo('#select-choice-1');
+        $('<option>').attr({'value':'3'}).html('Value 3').appendTo('#select-choice-1'); 
+		$('select').selectmenu();
+  });
+    });    
+    
+});
+</script>
+  <style>
+    @media all and (max-width: 35em) {
+    .my-breakpoint .ui-block-a, 
+    .my-breakpoint .ui-block-b, 
+    .my-breakpoint .ui-block-c,
+    .my-breakpoint .ui-block-d,
+    .my-breakpoint .ui-block-e { 
+      width: 100%; 
+      float:none; 
+    }
+  }
+ 
+  @media all and (min-width: 45em) {
+    .my-breakpoint.ui-grid-b .ui-block-a { width: 49.95%; }
+    .my-breakpoint.ui-grid-b .ui-block-b, 
+    .my-breakpoint.ui-grid-b .ui-block-c { width: 24.925%; }
+  }
+  </style>
+</head>
+<body>
+ <div data-role="page" id="pageone" data-theme="a">
+<div data-role="header">
+    <h1>Bata</h1>
+		<h2><a href="../" title=""><img src="img/adv.jpg" alt="bata"></a></h2>
+		
+						<a href="sign_up.html" data-transition="slidedown" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-role=button>sign up</a>
+					<a href="signin.html" data-transition="slidedown" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-role=button>sign in</a>
+<div id="idl">The result will be displayed here</div>
+<div id="myResult">The result</div>
+<div id="status">status</div>
+  <a href=#select-choice-1-listbox id="status" data-transition="slidedown" data-role=button> Goto status </a>
+<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+  <button id="btn3">Set Value</button> 
+  <p>Input field: <input type="text" id="test4" value="Mickey Mouse"></p>
+
+  <button id="btn4">Set Value</button> 
+ </div>
+
+  <div data-role="content">
+  <a href=http://www.advokatbata.co.rs/ id=link1 data-role=button> Advokatska kancelarija STOJANOVIĆ </a>
+
+   <a href=#win2 id=link1  data-transition="slidedown" data-role=button> UNOS </a>
+	 <a href=#page2 id=link2 data-transition="turn" data-role=button> Goto page 2 </a>
+	 <a href=#win3 id=link3  data-transition="slidedown" data-role=button> Goto window 3 </a>
+	  <div>
+	
+</div>
+    <div class="ui-grid-b my-breakpoint">
+      <div class="ui-block-a"><div class="ui-body ui-body-d">Block A</div></div>
+      <div class="ui-block-b"><div class="ui-body ui-body-d">Block B</div></div>
+      <div class="ui-block-c"><div class="ui-body ui-body-e">
+		<button class="ui-btn ui-btn-e"><a href="zuto/zuto.html" class="ui-btn ui-icon-delete ui-btn-icon-right">Right</a></button>
+		 <a href=indexzuto.html id=demo-page data-role=button> inbox </a>
+		<div data-role="collapsible" data-theme="e" data-content-theme="e">
+		<h3></h3>
+		<button class="ui-btn ui-btn-e">Button - Theme swatch B</button>
+		<p>the color to match the content block I'm in. </p>
+		</div>
+	  </div>
+	  </div>
+	  <div class="ui-block-a"><div class="ui-body ui-body-d">Block A</div></div>
+      <div class="ui-block-b"><div class="ui-body ui-body-d">Block B</div></div>
+      <div class="ui-block-c" data-theme="b"><div class="ui-body ui-body-b">Block C
+	  <button class="ui-btn ui-btn-b"><a href="plavo/plavo.html" class="ui-btn ui-icon-delete ui-btn-icon-right">Right</a></button>
+		 <a href=indexplavo.html id=demo-page data-role=button> inbox </a>
+		<div data-role="collapsible" data-theme="b" data-content-theme="b">
+		<h3></h3>
+		<button class="ui-btn ui-btn-b">Button - Theme swatch B</button>
+		<p>the color to match the content block I'm in. </p>
+		</div>
+	  </div></div>
+	  
+	  <div class="ui-block-a"><div class="ui-body ui-body-d">Block A</div></div>
+      <div class="ui-block-b"><div class="ui-body ui-body-d">Block B</div></div>
+      <div class="ui-block-c"><div class="ui-body ui-body-d">Block C
+	  <button class="ui-btn ui-btn-d"><a href="belo/belo.html" class="ui-btn ui-icon-delete ui-btn-icon-right">Right</a></button>
+		 <a href=indexbelo.html id=demo-page data-transition="flow" data-role=button> inbox </a>
+		<div data-role="collapsible" data-theme="d" data-content-theme="d">
+		<h3></h3>
+		<button class="ui-btn ui-btn-d">Button - Theme swatch B</button>
+		<p>the color to match the content block I'm in. </p>
+		</div>
+	  </div></div>
+    </div>
+	</div>
+	<div data-role="main" class="ui-content">
+    <p>...</p>
+    <a href="#">A Standard Text Link</a>
+    <a href="#" class="ui-btn">Link Button</a>
+    <p>A List View:</p>
+    <ul data-role="listview" data-autodividers="true" data-inset="true">
+      <li><a href="#pagetwo">Page two</a></li>
+      <li><a href="#">Billy</a></li>
+    </ul>
+    <label for="fullname">Input Field:</label>
+      <input type="text" name="fullname" id="fullname" placeholder="Name..">    
+
+		<div class="ui-grid-b">
+	<div class="ui-block-a">Block A
+	<label for="switch">Toggle Switch:</label>
+      <select name="switch" id="switch" data-role="slider">
+        <option value="on">On</option>
+        <option value="off" selected>Off</option>
+      </select>
+	</div>
+	<div class="ui-block-b">Block B
+	<a href="#pagetwo">Page two</a>
+	</div>
+	<div class="ui-block-e"><div class="ui-body ui-body-e">
+			<div data-content-theme="e"><h1><a href="zuto.html">zuto.html</a></div>
+			<div data-role="collapsible" data-theme="e" data-content-theme="e">
+				<h3></h3>
+				<p>I have attribute set manually on my container to set the color to match the content block I'm in. </p>
+			</div>
+		</div></div>
+		<div class="ui-block-b">Block A
+		<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-b">Add</a>
+    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-b">Delete</a>
+    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-grid ui-btn-b">More</a>
+	<label for="select-choice-1" class="select">Select, native menu</label>
+<select name="select-choice-1" id="select-choice-1">
+    <option value="standard">Standard: 7 day</option>
+    <option value="rush"><a href="#pagetwo">Page two</a></option>
+    <option value="express">Express: next day</option>
+    <option value="overnight">Overnight</option>
+</select>
+</div>
+		</div><div class="ui-block-b">Block B
+	<label for="select-choice-1" class="select">Select, native menu</label>
+<select name="select-choice-1" id="select-choice-1">
+    <option value="plavo" class="myButton"><div id="myResult"></div></option>
+    <option value="rush"><a href="#pagetwo">Page two</a></option>
+    <option value="#pagetwo"> jgos</option>
+    <option value="overnight">Overnight</option>
+</select>
+	</div>
+	<div class="ui-block-c"><div class="ui-body ui-body-c">
+			<h1><a href="plavo.html">plavo.html</a></h1>
+			<div data-role="collapsible" data-theme="c" data-content-theme="c">
+				<h3> content</h3>
+				<p>I have attribute set manually on my container to set the color to match the content block I'm in. </p>
+			</div>
+		</div><!-- /themed container --></div>
+		<div class="ui-block-a">Block A
+		  <div data-role="content">
+    <input type="button" value="http://foo.com/a/file.html" id="button1" class="myButton" data-inline="true" />
+    <input type="button" value="http://foo.com/a/" id="button2" class="myButton" data-inline="true" />
+    <input type="button" value="http://foo.com/a" id="button3" class="myButton" data-inline="true" />
+    <input type="button" value="//foo.com/a/file.html" id="button4" class="myButton" data-inline="true" />
+    <input type="button" value="/zuto/zuto.html" id="button5" class="myButton" data-inline="true" />
+    <input type="button" value="zuto.html" id="button6" class="myButton" data-inline="true" />
+    <input type="button" value="/zuto.html" id="button7" class="myButton" data-inline="true" />
+    <input type="button" value="?a=1&b=2" id="button8" class="myButton" data-inline="true" />
+    <input type="button" value="#pagetwo" id="button9" class="myButton" data-inline="true" />
+    <div id="myResult">The result will be displayed here</div>
+  </div>
+		</div>
+	<div class="ui-block-b">Block B</div>
+	<div class="ui-block-c"><div class="ui-body ui-body-d">
+			<h1>H1 Heading</h1>
+			<div data-role="controlgroup" data-type="vertical" data-theme="c">
+    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-b">add</a>
+    <a href="#" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-delete ui-btn-b">delete</a>
+    <a href="#pagetwo" class="ui-shadow ui-btn ui-corner-all ui-btn-icon-left ui-icon-grid ui-btn-b">More</a>
+	<label for="select-choice-1" class="select">Select, native menu</label>
+<select name="select-choice-1" id="select-choice-1">
+    <option value="standard">Standard: 7 day</option>
+    <option value="rush"><a href="#pagetwo">Page two</a></option>
+    <option value="express">Express: next day</option>
+    <option value="overnight">Overnight</option>
+</select>
+</div>
+			<a data-iconpos="notext" data-role="button" data-content-theme="f" title="Home">Home</a>
+      <a data-iconpos="notext" data-role="button" data-content-theme="d">d</a>
+			<!-- /collapsible -->
+			<div data-role="collapsible" data-theme="d" data-content-theme="d">
+				<h3>I'm </h3>
+				<p> container to set the color to match the content block I'm in. </p>
+			</div>
+		</div><!-- /themed container --></div>
+</div><!-- /grid-b -->
+  </div>
+
+	<div data-role="footer">
+    <h1>Page Footer</h1>
+  </div>
+	</div> 
+  <div data-role="page" id="pagetwo" data-theme="a">
+    <div data-role="header">
+      <a data-iconpos="notext" data-role="button" data-icon="home" title="Home">Home</a>
+      <a data-iconpos="notext" data-role="button" data-icon="flat-menu"></a>
+    </div>
+
+    <div data-role="content" data-content-theme="b" role="main">
+
+      <a href="#" data-theme="b" data-role="button">Yes</a>
+      <a href="#" data-role="button">Yes</a>
+
+      <div data-role="collapsible" data-theme="g" data-content-theme="g" data-collapsed="false">
+        <h3>Section 1</h3>
+        <button data-icon="flat-mail">Yes</button>
+        <a href="#" data-role="button">Yes</a>
+        <div data-role="fieldcontain">
+          <div data-role="controlgroup" data-type="horizontal">
+          <button>Yes</button>
+          <a href="#" data-role="button">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	
+  </div>
+  <div data-role=page id=win3>
+  <div data-role=header>
+    <h1>Window 3</h1>
+  </div>
+  <div data-role=content>
+    <p> Window content 3 </p>  
+	<a href="page-transitions-page.html" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">page</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="slidefade" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="slide" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="slidedown" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="none" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="slidedown" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+  </div>
+</div>
+<div data-role=page id=select-choice-1-listbox>
+  <div data-role=header>
+    <h1>Window 3</h1>
+  </div>
+  <div data-role=content>
+    <p> Window content 3 </p>  
+	<a href="page-transitions-page.html" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">page</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+<a href="page-transitions-dialog.html" data-rel="dialog" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
+</div>
+</div>
+
+  <div data-role="page" id="index">
+        <div data-role="content">
+		<div id="s2"></div>
+        </div> 
+    </div> 
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+
+<script src="js/jquery.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+	<script src="js/dbmesto.js"></script>
+	<script src="js/jqm-docs.js"></script>
+	 <link rel="stylesheet" href="css/jqm-docs.css" />
+<script>
+$.mobile.changePage( "novi.html", {
+  transition: "pop",
+  reverse: false,
+  changeHash: false
+});
+</script>
+  <script>
+
+$("div:jqmData(role=page)").bind ("pagebeforeshow", function (event, ui)
+{
+  var txt = "pagebeforeshow id=" + this.id + "\n";
+  if (ui.prevPage && ui.prevPage[0])
+    txt += "ui.prevPage=" + ui.prevPage[0].id + "\n";
+  if (ui.nextPage && ui.nextPage[0]) 
+    txt += "ui.nextPage=" + ui.nextPage[0].id + "\n";
+  alert (txt);
+  
+});
+
+$("div:jqmData(role=page)").bind ("pageshow", function (event, ui)
+{
+  var txt = "pageshow id=" + this.id + "\n";
+  if (ui.prevPage && ui.prevPage[0])
+    txt += "ui.prevPage=" + ui.prevPage[0].id + "\n";
+  if (ui.nextPage && ui.nextPage[0]) 
+    txt += "ui.nextPage=" + ui.nextPage[0].id + "\n";
+  alert (txt);
+});
+
+$("div:jqmData(role=page)").bind ("pagebeforehide", function (event, ui)
+{
+  var txt = "pagebeforehide id=" + this.id + "\n";
+  if (ui.prevPage && ui.prevPage[0])
+    txt += "ui.prevPage=" + ui.prevPage[0].id + "\n";
+  if (ui.nextPage && ui.nextPage[0]) 
+    txt += "ui.nextPage=" + ui.nextPage[0].id + "\n";
+  alert (txt);
+});
+
+$("div:jqmData(role=page)").bind ("pagehide", function (event, ui)
+{
+  var txt = "pagehide id=" + this.id + "\n";
+  if (ui.prevPage && ui.prevPage[0])
+    txt += "ui.prevPage=" + ui.prevPage[0].id + "\n";
+  if (ui.nextPage && ui.nextPage[0]) 
+    txt += "ui.nextPage=" + ui.nextPage[0].id + "\n";
+  alert (txt);
+});
+$("div:jqmData(role=page)").bind ("swipeleft", function (event)
+{
+  var id = this.id;
+  var next;   // id of the next visible window
+  if (id == "home") next = "win2";
+  else if (id == "win2") next = "win3";
+  if (next) $.mobile.changePage ($("#" + next), 
+  { 
+    transition : "slide" 
+  });
+});
+
+$("div:jqmData(role=page)").bind ("swiperight", function (event)
+{
+  var id = this.id;
+  var next;   // id of the next visible window
+  if (id == "win2") next = "home";
+  else if (id == "win3") next = "win2";
+  if (next) $.mobile.changePage ($("#" + next), 
+  { 
+    transition : "slide",
+    reverse : true
+  });
+});
+</script>
+<script>
+
+var html = "";
+html += "<div data-role=page id=win2 data-add-back-btn=true>";
+html +=   "<div data-role=header>";
+html +=     "<h1>Window 2</h1>";
+html +=   "</div>"
+html +=   "<div data-role=content>";
+html +=     "<p> Window content 2 </p>";
+html +=   "</div>";
+html += "</div>";
+
+$("body").append (html);
+
+$("#index").bind ("pagecreate", function (event)
+{
+  $.mobile.changePage ($("#win4"));
+});
+
+</script>
+<script>
+
+var html = "";
+html += "<div data-role=page id=win2 data-add-back-btn=true>";
+html +=   "<div data-role=header>";
+html +=     "<h1>Window 2</h1>";
+html +=   "</div>"
+html +=   "<div data-role=content>";
+html +=     "<p> Window content 2 </p>";
+html +=   "</div>";
+html += "</div>";
+
+$("body").append (html);
+
+$("#index").bind ("pagecreate", function (event)
+{
+  $.mobile.changePage ($("#win5"));
+});
+
+</script>
+</head>
+<body>
+<div data-role=page id=saradnici>
+  <div data-role=header>
+    <h1>
+		<a href="index.html" rel="external" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">PRETRAZIVANJE</a>
+    <a href="saradnici.html" rel="external" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">saradnici</a>
+    <a href="stat.html" rel="external" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">statistika</a>
+</h1>
+<h3></h3>
+</div>
+<div data-role=content>
+<div data-role="collapsible" data-theme="e" data-content-theme="e">
+				<h3>Regali po mestima</h3>
+				<div class="ui-grid-a">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+	<p>Naziv mesta</p> 
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px"><p>opis</p></div>
+	<button value="Nis" id="selectopis"></button>
+	
+	 <ul id="selectopis"></ul>
+	</div>
+</div><!-- /grid-a -->
+<div class="ui-grid-a">
+<li id="uzmigrad">Nis</li>
+<ul id="ourregal"></ul>
+	<button value="regalmesto" id="regalmesto"></button>
+	</div><!-- /grid-a -->
+	<input type="text" id="mesto" name="mesto" placeholder="novo mesto" />
+	<input type="submit" value="mesto" id="addMesto" />
+	</div>
+<div data-role="collapsible" data-theme="e" data-content-theme="e">
+				<h3>Saradnici na terenu za sve dogadjaje</h3>
+				<p> </p>
+				<form>
+<div class="ui-field-contain">
+    <label for="select-native-key"></label>
+    <select id="select-native-key"><option name="ourKey" id="ourKey">
+    </option></select>
+</div>
+</form>
+	<form>
+<div class="ui-field-contain">
+    <label for="select-native-kljuc"></label>
+    <select name="select-native-kljuc" id="select-native-kljuc">
+    </select>
+</div>
+</form>
+				 <input type="text" id="author" name="author" placeholder="Whatauthor?" />
+				  <input type="submit" value="Add Todo Item" id="addItem2" />
+				  showauthor <button value="showauthor" id="showauthor"></button>
+     ShowAuth<ul id="ourAuthor"></ul>
+			</div>
+<div data-role="collapsible" data-theme="e" data-content-theme="e">
+				<h3>Saradnici na terenu</h3>
+				<p> </p>
+				showsaradnik <button value="showsaradnikbg" id="showsaradnikbg"></button>
+     ShowSaradnik<ul id="oursaradnikBg"></ul>
+				<div class="ui-grid-b">
+                <div class="ui-block-a">
+                   <div class="ui-bar ui-bar-a" style="height:60px">
+
+	</div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+					 <ul>
+		<li data-filtertext="saradnik1"><a href="../stojan2/nis/saradnici/" data-ajax="false">saradnici Niš</a></li>
+	</ul>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                       <form>
+    <label>
+        <input type="checkbox" name="checkbox-0 ">Check me
+    </label>
+</form> 
+                    </div>
+                </div>
+				</div>
+				<div class="ui-grid-c">
+                <div class="ui-block-a">
+                   
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+					 <ul>
+		<li data-filtertext="saradnik"><a href="../stojan2/nis/saradnici/" data-ajax="false">saradnici Niš</a></li>
+	</ul>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                       <form>
+    <label>
+        <input type="checkbox" name="checkbox-0 " checked="">Check me
+    </label>
+</form> 
+                    </div>
+                </div>
+				</div>
+				<div class="ui-grid-c">
+                <div class="ui-block-a">
+                   
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+					 <ul>
+		<li data-filtertext="saradnik2"><a href="../stojan2/leskovac/saradnici/" data-ajax="false">saradnici Leskovac</a></li>
+		</ul>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                       <form>
+    <label>
+        <input type="checkbox" name="checkbox-0 ">Check me
+    </label>
+</form> 
+                    </div>
+                </div>
+				</div>
+				<div class="ui-grid-c">
+                <div class="ui-block-a">
+                   
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+					 <ul>
+		<li data-filtertext="saradnik3"><a href="../stojan2/krusevac/saradnici/" data-ajax="false">saradnici Krusevac</a></li>
+		</ul>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                       <form>
+    <label>
+        <input type="checkbox" name="checkbox-0 ">Check me
+    </label>
+</form> 
+                    </div>
+                </div>
+				</div>
+				<div class="ui-grid-c">
+                <div class="ui-block-a">
+                   
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+					 <ul>
+		<li data-filtertext="saradnik4"><a href="../stojan2/beograd/saradnici/" data-ajax="false">saradnici Beograd</a></li>
+		</ul>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                       <form>
+    <label>
+        <input type="checkbox" name="checkbox-0 ">Check me
+    </label>
+</form> 
+                    </div>
+                </div>
+				</div>
+				<div class="ui-grid-c">
+                <div class="ui-block-a">
+                   
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+					 <ul>
+		<li data-filtertext="saradnik5"><a href="../stojan2/novisad/saradnici/" data-ajax="false">saradnici NoviSad</a></li>
+		</ul>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                       <form>
+    <label>
+        <input type="checkbox" name="checkbox-0 ">Check me
+    </label>
+</form> 
+                    </div>
+                </div>
+				</div>
+			</div>
+<div data-role="collapsible" data-theme="e" data-content-theme="e">
+				<h3>Saradnici </h3>
+				<p> </p>
+				<div class="ui-grid-a">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:560px">
+	<div class="ui-bar ui-bar-c" style="height:260px">
+selectMesto <button value="selectMesto" id="selectMesto"></button>
+	 <ul id="selectMesto"></ul>
+                        <input type="text" name="podaci" id="podaci" value="">
+                    </div>
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">Block B</div></div>
+</div><!-- /grid-a -->
+			</div>			
+			<div data-role="collapsible" data-theme="e" data-content-theme="e">
+				<h3>KOMPANIJA</h3>
+				<p> </p>
+				<div class="ui-grid-a">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+	<div class="ui-bar ui-bar-c" style="height:60px">
+
+                        <input type="text" name="podaci" id="podaci" value="">
+                    </div>
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">Block B</div></div>
+</div><!-- /grid-a -->
+<div class="ui-grid-a">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+	<div class="ui-bar ui-bar-c" style="height:60px">
+
+                        <input type="text" name="podaci" id="podaci" value="">
+                    </div>
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">Block B</div></div>
+</div><!-- /grid-a -->
+
+<div class="ui-grid-a">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+	<div class="ui-bar ui-bar-c" style="height:60px">
+
+                        <input type="text" name="podaci" id="podaci" value="">
+                    </div>
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">Block B</div></div>
+</div><!-- /grid-a -->
+</div>
+<div class="ui-grid-a">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:660px">
+	  
+	<ul id="todoItems" data-role="listview" data-inset="true" data-filter="true"></ul>
+	  
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:660px"> <input type="text" name="opis" id="opis" value="">
+                   </div></div>
+</div><!-- /grid-a -->
+  </p><ul id="todoItems" data-role="listview" data-inset="true" data-filter="true"></ul>
+	  <ul id="todoItems2" data-role="listview" data-inset="true" data-filter="true"></ul>
+	  ShowALL<ul id="ourList"></ul>
+	  izvadi:<button id="izvadi"></button>
+	  <div id="izvadjeno"></div>
+	showall <button value="showall" id="showAll"></button>
+	
+	showauthor <button value="showauthor" id="showauthor"></button>
+     ShowAuth<ul id="ourAuthor"></ul>
+	 
+	 <button value="showourmesto" id="showourmesto"></button>
+	 ourMesto<ul id="ourMesto"></ul>
+	
+	 
+	 <select id="selektovatimesto"><option id="selektovatiMesto"></option></select>
+	 <select id="selektovati"><option id="selektovati"></option></select>
+ <select id="select-native-mesto"><option value="select-native-mesto" id="showMesto"></option></select>
+	 
+	 
+<div data-role="footer">
+      <div data-role="controlgroup" data-type="horizontal">
+         	<a href="novi.html" data-rel="external" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">novi</a>
+<a href="stat.html" data-rel="external" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">izmeni</a>
+<a href="kontakt.html" data-rel="external" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">kontakt</a>
+ </div>
+
+    </div> <!-- /footer --> 
+</div>
+</div>
+</body>
+</html>

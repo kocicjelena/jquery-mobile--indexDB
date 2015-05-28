@@ -1,0 +1,89 @@
+<h1>Chrome on OSX - Excel (.xls) fileReader mimetype bug</h1>
+<p>When reading Excel files (.xls/Office 97/application/vnd.ms-excel) files on OSX, it returns the type property as ''. </p>
+<br />
+<p>Correct type is expected to be 'application/vnd.ms-excel'</p>
+    
+<br />
+<input type="file" id="files" name="files[]"/>
+<output id="list"></output>
+
+<script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+    output.push('<p>Read file "<strong>', f.name, '</strong>" as type "<strong>', f.type, '</strong> which is <strong>', f.type === 'application/vnd.ms-excel' , '</strong></p>' , '<br /> User agent', navigator.userAgent);
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
+body {
+    margin: 10px; 
+}
+
+h1 {
+    font-size:20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+    
+http://jsfiddle.net/auchenberg/SQTpj/
+ http://jsfiddle.net/LzLcZ/
+ <input type="file" accept=".csv" />
+ For Excel Files 2003-2007 (.xls), use: 
+
+<input type="file" accept="application/vnd.ms-excel" />
+<input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+For Text Files (.txt) use: 
+
+<input type="file" accept="text/plain" />
+For Image Files (.png/.jpg/etc), use: 
+
+<input type="file" accept="image/*" />
+For HTML Files (.htm,.html), use:
+
+<input type="file" accept="text/html" />
+For Video Files (.avi, .mpg, .mpeg, .mp4), use:
+
+<input type="file" accept="video/*" />
+For Audio Files (.mp3, .wav, etc), use:
+
+<input type="file" accept="audio/*" />
+For PDF Files, use:
+
+<input type="file" accept=".pdf" /> 
+DEMO:
+http://jsfiddle.net/dirtyd77/LzLcZ/144/
+
+NOTE:
+
+If you are trying to display Excel CSV files (.csv), do NOT use:
+
+text/csv
+application/csv
+text/comma-separated-values (works in Opera only).
+If you are trying to display a particular file type (for example, a WAV or PDF), then this will almost always work...
+
+ <input type="file" accept=".FILETYPE" />
+ http://www.htmlquick.com/reference/mime-types.html
+ header('Content-Disposition: attachment; filename="name_of_excel_file.xls"');
+ http://blogs.msdn.com/b/vsofficedeveloper/archive/2008/05/08/office-2007-open-xml-mime-types.aspx
+ http://mimesniff.spec.whatwg.org/
+ http://www.w3.org/TR/html5/number-state.html#file-upload-state
+ http://jsfiddle.net/auchenberg/SQTpj/

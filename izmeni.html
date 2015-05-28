@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FORMA OSIGURANJE</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script src="js/jqm-docs.js"></script>
+	<script src="js/klientmesto1.js"></script>
+    <link rel="stylesheet" href="css/jqm-docs.css" />
+	<script>
+	
+						</script>
+    
+	<script>
+      $("#izvestaj").live("pageshow", function(event, data) {
+        //add icons to horizontal checkbox group
+        $("#twitterlbl").children("span").append("<span class='ui-icon ui-icon-shadow ui-icon-checkbox-off'>").trigger("create");
+        $("#twitterlbl").addClass("ui-btn-icon-left").trigger("refresh");
+        $("#facebooklbl").children("span").append("<span class='ui-icon ui-icon-shadow ui-icon-checkbox-off'>").trigger("create");
+        $("#facebooklbl").addClass("ui-btn-icon-left").trigger("refresh");
+        updatePosts();
+        updateComments();
+        $("#posts").bind("change", updatePosts);
+        $("#comments").bind("change", updateComments);
+      });
+      
+      //update checkbox styles on change event
+      //add ui-btn-active style to vertical checkbox group
+      function updatePosts(event, ui) {
+        if($("#posts").prop("checked")) {
+          $("#postslbl").addClass("ui-btn-active").trigger("refresh");
+        } else {
+          if($("#postslbl").hasClass("ui-btn-active"))
+            $("#postslbl").removeClass("ui-btn-active").trigger("refresh");
+        }
+      }
+      
+      function updateComments(event, ui) {
+        if($("#comments").prop("checked")) {
+          $("#commentslbl").addClass("ui-btn-active").trigger("refresh");
+        } else {
+          if($("#commentslbl").hasClass("ui-btn-active"))
+            $("#commentslbl").removeClass("ui-btn-active").trigger("refresh");
+        }
+      }
+    </script>
+</head>
+
+<body>
+    <div data-role="page" id="izmeni">
+        <div data-role=header>
+            <br />
+            <h1></h1>
+            <a href="./index.html" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse">NAZAD</a>
+
+            <a href="../nav.html" rel="external" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">PRETRAGA</a>
+            <br />
+        </div>
+        <!-- /header -->
+        <div data-role="content"> 
+		
+		            <div class="ui-grid-c">
+                <div class="ui-block-a">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF="#outtabela" data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">TABELA</a>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#outinformacije data-role=button data-transition=slideup class="ui-shadow ui-btn ui-corner-all">INFORMACIJE</a>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#outizvestaj data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">IZVESTAJ</a>
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#outistorija data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">ISTORIJA</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /grid-c -->
+		
+		
+           
+		</div> 
+		  <div data-role=footer>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="../" data-direction="reverse" data-role=button></a>
+
+            </div>
+
+        </div>
+		
+		</div>
+		<div data-role=page id=outtabela data-add-back-btn=true>
+        <div data-role=header>
+            <br />
+            <h1></h1>
+            <a href="./index.html" rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse">NAZAD</a>
+
+            <a href="../nav.html" rel="external" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">PRETRAGA</a>
+            <br />
+        </div>
+        <div data-role=content>
+            <div class="ui-grid-c">
+                <div class="ui-block-a">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#tabela data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">TABELA</a>
+                    </div>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#informacije data-role=button data-transition=slideup class="ui-shadow ui-btn ui-corner-all">INFORMACIJE</a>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#izvestaj data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">IZVESTAJ</a>
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#istorija data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">ISTORIJA</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /grid-c -->
+			<div class="ui-bar ui-bar-a">
+			<div class="ui-grid-d">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:190px">    </div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:190px">     </div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:190px">
+
+	  <div class="ui-field-contain">
+    <label for="select-custom-outsaradnikteren"></label>
+    <select name="select-custom-outsaradnikteren" id="select-custom-outsaradnikteren" data-native-menu="false">
+    <option value="A">saradnik1</option>
+    <option value="B">saradnik2</option>
+    <option value="C">saradnik3</option>
+    <option value="D">saradnik4</option>
+    <option value="E">saradnik5</option>
+	</select>
+</div>
+<input type="text" id="outteren" name="outteren" placeholder="" style="width: 13.2em; height: 3.2em; float: left;" />
+	</div></div>
+    <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:190px">
+	
+	 <div class="ui-field-contain">
+    <label for="select-custom-outmESTO"></label>
+    <select name="select-custom-outmESTO" id="select-custom-outmESTO" data-native-menu="false">
+    <option value="A">Nis</option>
+    <option value="B">Leskovac</option>
+    <option value="C">Krusevac</option>
+    <option value="D">Novi Sad</option>
+    <option value="E">Beograd</option>
+	</select>
+</div>
+<input type="text" id="outtestmesto" name="outtestmesto" placeholder="" style="width: 13.2em; height: 3.2em; float: left;" />
+
+	</div></div>
+    <div class="ui-block-e"><div class="ui-bar ui-bar-a" style="height:190px">
+                            <input type="checkbox" name="checkbox-outprihvacen" id="checkbox-outprihvacen" checked="">
+                            <label for="checkbox-outprihvacen" id="outprihvacen"></label>
+	<div id="outstatusprihvacen"></div>
+	</div></div>
+</div><!-- /grid-c -->
+			<div class="ui-grid-d">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:190px">
+
+	<div class="ui-field-contain">
+    <label for="select-custom-outINTERNIBROJ"></label>
+    <select name="select-custom-outINTERNIBROJ" id="select-custom-outINTERNIBROJ" data-native-menu="false">
+        <option>broj</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+		 <option value="5">5</option>
+		  <option value="6">6</option>
+		   <option value="7">7</option>
+		    <option value="8">8</option>
+			 <option value="9">9</option>
+			  <option value="11">11</option>
+			  <option value="12">12</option>
+			  <option value="13">13</option>
+			  <option value="14">14</option>
+			  <option value="15">15</option>
+			  <option value="16">16</option>
+			  <option value="17">17</option>
+			  <option value="18">18</option>
+			  <option value="19">19</option>
+			  <option value="20">20</option>
+			  
+    </select>
+</div>
+
+<input type="text" id="outtestinternibroj" name="outtestinternibroj" placeholder="" style="width: 13.2em; height: 3.2em; float: left;" />
+
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:190px">
+	<div class="ui-field-contain">
+    <label for="select-custom-ibr"></label>
+    <select name="select-custom-outibr" id="select-custom-outibr" data-native-menu="false">
+        <option>rok u danima</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+		 <option value="5">5</option>
+		  <option value="6">6</option>
+		   <option value="7">7</option>
+		    <option value="8">8</option>
+			 <option value="9">9</option>
+			  <option value="11">11</option>
+			  <option value="12">12</option>
+			  <option value="13">13</option>
+			  <option value="14">14</option>
+			  <option value="15">15</option>
+			  <option value="16">16</option>
+			  <option value="17">17</option>
+			  <option value="18">18</option>
+			  <option value="19">19</option>
+			  <option value="20">20</option>
+			  
+    </select>
+</div>
+<input type="text" id="outtest" name="outtest" placeholder="" style="width: 13.2em; height: 3.2em; float: left;" />
+
+	</div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:190px">     </div></div>
+    <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:190px">
+	<label for="outdate">Datum:</label>
+            <input type="date" name="outdate" id="outdate" value="" required />
+	</div></div>
+    <div class="ui-block-e"><div class="ui-bar ui-bar-a" style="height:190px">    </div></div>
+</div><!-- /grid-c -->
+</div>
+<div class="ui-bar ui-bar-a">
+<div class="ui-grid-d">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:160px"><label for="date2">Datum:</label>
+            <input type="date" name="outdate2" id="outdate2" value=""></div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:160px">
+		 <div class="ui-field-contain">
+    <label for="select-custom-outmth"></label>
+    <select name="select-custom-outmth" id="select-custom-outmth" data-native-menu="false">
+   <option value="januar">januar</option>
+    <option value="februar">februar</option>
+    <option value="mart">mart</option>
+    <option value="april">april</option>
+	<option value="maj">maj</option>
+	<option value="jun">jun</option>
+	<option value="jul">jul</option>
+	<option value="avgust">avgust</option>
+	<option value="septembar">septembar</option>
+	<option value="oktobar">oktobar</option>
+	<option value="novembar">novembar</option>
+	<option value="decembar">decembar</option>
+	</select>
+</div>
+<input type="text" id="outmth" name="outmth" placeholder="" style="width: 13.2em; height: 3.2em; float: left;" />
+
+
+	</div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:160px">
+	<div class="ui-field-contain">
+    <label for="select-custom-outSATI"></label>
+    <select name="select-custom-outSATI" id="select-custom-outSATI" data-native-menu="false">
+        <option>SATI</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+		 <option value="5">5</option>
+		  <option value="6">6</option>
+		   <option value="7">7</option>
+		    <option value="8">8</option>
+			 <option value="9">9</option>
+			  <option value="11">11</option>
+			  <option value="12">12</option>
+			  <option value="13">13</option>
+			  <option value="14">14</option>
+			  <option value="15">15</option>
+			  <option value="16">16</option>
+			  <option value="17">17</option>
+			  <option value="18">18</option>
+			  <option value="19">19</option>
+			  <option value="20">20</option>
+			  <option value="21">21</option>
+			  <option value="22">22</option>
+			  <option value="23">23</option>
+    </select>
+</div>
+<input type="text" id="outtestSATI" name="outtestSATI" placeholder="" style="width: 13.2em; height: 3.2em; float: left;" />
+
+	</div></div>
+    <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:60px">    </div></div>
+    <div class="ui-block-e"><div class="ui-bar ui-bar-a" style="height:60px">   </div></div>
+</div><!-- /grid-c -->
+<div class="ui-bar ui-bar-a">
+			 <div data-role="fieldcontain">
+            <label for="outmestog">Mesto:</label>
+            <input type="text" name="outmestog" id="outmestog" value="">
+			</div>
+			 </div>
+</div>
+			<div class="ui-bar ui-bar-a">
+            
+			
+	  
+			</div>
+			
+			<div class="ui-bar ui-bar-a">
+            <fieldset data-role="controlgroup" data-role="fieldcontain" id="radio">
+                <legend></legend>
+                <input type="radio" name="radio-outchoice-1" id="radio-outchoice-1" value="okrivljeni">
+                <label for="radio-outchoice-1">Okrivljeni</label>
+                <input type="radio" name="radio-outchoice-2" id="radio-outchoice-2" value="osteceni">
+                <label for="radio-outchoice-2">Osteceni</label>
+            </fieldset>
+    <input type="text" id="outstatusradio" name="outstatusradio" />
+            <div class="ui-grid-c">
+                <div class="ui-block-a">
+                    <label for="outpodaci">Podaci</label>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+
+                        <input type="text" name="outpodaci" id="outpodaci" value="">
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                        <label for="outpodaci2"></label>
+                        <input type="text" name="outpodaci2" id="outpodaci2" value="">
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                        <label for="outpodaci3"></label>
+                        <input type="text" name="outpodaci3" id="outpodaci3" value="">
+                    </div>
+                </div>
+            </div>
+            <!-- /grid-b -->
+			
+            <fieldset data-role="controlgroup" data-role="fieldcontain" id="checkboxvozout">
+			<div class="ui-bar ui-bar-d">
+                            <legend></legend>
+							      <div></div>
+                        </div>
+                <div class="ui-grid-c">
+
+                   
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozoutout-1" id="checkboxvozoutout-1" value="PMV" checked="">
+                            <label for="checkboxvozoutout-1" id="postPMV">PMV</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozout-2" id="checkboxvozout-2" value="TMP">
+                            <label for="checkboxvozout-2" id="postTMP">TMV</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-c">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozout-3" id="checkboxvozout-3" value="TMV sa prikolicom">
+                            <label for="checkboxvozout-3" id="postTMVsa">TMV sa prikolicom</label>
+                        </div>
+                    </div>
+					 <div class="ui-block-d">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozout-4" id="checkboxvozout-4" value="Autobus">
+                            <label for="checkboxvozout-4" id="postbus">Autobus</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-grid-c">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozout-5" id="checkboxvozout-5" value="Motor">
+                            <label for="checkboxvozout-5" id="postmotor">Motor</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozout-6" id="checkboxvozout-6" value="Bicikl">
+                            <label for="checkboxvozout-6" id="Bicikl">Bicikl</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-c">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozout-7" id="checkboxvozout-7" value="Putnik">
+                            <label for="checkboxvozout-7" id="postPutnik">Putnik</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-d">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozout-8" id="checkboxvozout-8" value="pešak">
+                            <label for="checkboxvozout-8" id="postPesak">pešak</label>
+                        </div>
+                    </div>
+                    <!-- /grid-c -->
+                </div>
+            </fieldset>
+<input type="text" id="statuscheckboxvozout" name="statuscheckboxvozout" />
+     
+            <fieldset class="ui-grid-b" data-role="fieldcontain">
+                <div class="ui-block-a">
+                    <input type="text" name="outmarka" id="outmarka" value="marka">
+                </div>
+                <div class="ui-block-b">
+                    <input type="text" name="outregbr" id="outregbr" value="reg.br.">
+                </div>
+                <div class="ui-block-c">
+                    <input type="text" name="outoz" id="outoz" value="o.z.">
+                </div>
+            </fieldset>
+			
+            <fieldset data-role="controlgroup" data-role="fieldcontain" id="outcheckboxaoutk">
+                <div class="ui-grid-d">
+                    <div class="ui-block-a">
+                         <div class="ui-bar" style="height:60px;background-color:yellow;">
+                            <input type="checkbox" name="checkboxaoutout-1" id="checkboxaout-1" value="LTP">
+                            <label for="checkboxaout-1" id="postLTP">LTP</label>
+                        </div>
+                    </div>
+
+                    <div class="ui-block-b">
+                       <div class="ui-bar" style="height:60px;background-color:orange">
+                            <input type="checkbox" name="checkboxaout-2" id="checkboxaout-2" value="TTP">
+                            <label style="font-color:orange;" for="checkboxaout-2" id="postTTP">TTP</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-c">
+                         <div class="ui-bar ui-bar-c" style="height:60px;background-color:red">
+                            <input type="checkbox" name="checkboxaout-3" id="checkboxaout-3" value="TTP opasne">
+                            <label for="checkboxaout-3" id="postTTPop">TTP opasne po zivot</label>
+                        </div>
+                    </div>
+					  <div class="ui-block-d">
+                        <div class="ui-bar ui-bar-c" style="height:60px;background-color:gray">
+                            <input type="checkbox" name="checkboxaout-4" id="checkboxaout-4" value="smrtni ishod">
+                            <label for="checkboxaout-4" id="postsmrt">smrtni ishod</label>
+                        </div>
+                    </div>
+					 <div class="ui-block-e">
+                        <div class="ui-bar ui-bar-a" style="height:60px;background-color:AliceBlue;">
+                            <input type="checkbox" name="checkboxaout-5" id="checkboxaout-5" value="na lecenju" style="background-color:white;">
+                            <label for="checkboxaout-5" id="postlek">na lecenju</label>
+                        </div>
+                </div>
+                <!-- /grid-b -->
+              
+                </div>
+                <!-- /grid-b -->
+            </fieldset>
+<input type="text" id="selektovanocheckboxaout" name="selektovanocheckboxaout" />
+
+            <label for="outpovreda">opis povrede</label>
+			<textarea id="outpovreda" name="outpovreda" required placeholder="opis povrede "></textarea>
+         	</div>
+            
+
+		
+			<div class="ui-bar ui-bar-a">
+           
+    <input type="text" id="statusradiosout" name="statusradios" />
+            <div class="ui-grid-c">
+                <div class="ui-block-a">
+                    <label for="outpodacis">Podaci</label>
+                </div>
+                <div class="ui-block-b">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+
+                        <input type="text" name="outpodacis" id="outpodacis" value="">
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                        <label for="outpodacis2"></label>
+                        <input type="text" name="outpodacis2" id="outpodacis2" value="">
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-bar ui-bar-c" style="height:60px">
+                        <label for="outpodacis3"></label>
+                        <input type="text" name="outpodacis3" id="outpodacis3" value="">
+                    </div>
+                </div>
+            </div>
+            <!-- /grid-b -->
+			
+            <fieldset data-role="controlgroup" data-role="fieldcontain" id="checkboxvozouts">
+			<div class="ui-bar ui-bar-d">
+                            <legend></legend>
+							      <div></div>
+                        </div>
+                <div class="ui-grid-c">
+
+                   
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-1" id="checkboxvozouts-1" value="PMV">
+                            <label for="checkboxvozouts-1" id="postPMV">PMV</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-2" id="checkboxvozouts-2" value="TMP">
+                            <label for="checkboxvozouts-2" id="postTMP">TMV</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-c">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-3" id="checkboxvozouts-3" value="TMV sa prikolicom">
+                            <label for="checkboxvozouts-3" id="postTMVsa">TMV sa prikolicom</label>
+                        </div>
+                    </div>
+					 <div class="ui-block-d">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-4" id="checkboxvozouts-4" value="Autobus">
+                            <label for="checkboxvozouts-4" id="postbus">Autobus</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-grid-c">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-5" id="checkboxvozouts-5" value="Motor">
+                            <label for="checkboxvozouts-5" id="postmotor">Motor</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-6" id="checkboxvozouts-6" value="Bicikl">
+                            <label for="checkboxvozouts-6" id="Bicikl">Bicikl</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-c">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-7" id="checkboxvozouts-7" value="Putnik">
+                            <label for="checkboxvozouts-7" id="postPutnik">Putnik</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-d">
+                        <div class="ui-bar ui-bar-a">
+                            <input type="checkbox" name="checkboxvozouts-8" id="checkboxvozouts-8" value="pešak">
+                            <label for="checkboxvozouts-8" id="postPesak">pešak</label>
+                        </div>
+                    </div>
+                    <!-- /grid-c -->
+                </div>
+            </fieldset>
+<input type="text" id="statuscheckboxvozouts" name="statuscheckboxvozouts" />
+     
+            <fieldset class="ui-grid-b" data-role="fieldcontain">
+                <div class="ui-block-a">
+                    <input type="text" name="outmarkas" id="outmarkas" value="marka">
+                </div>
+                <div class="ui-block-b">
+                    <input type="text" name="outregbrs" id="outregbrs" value="reg.br.">
+                </div>
+                <div class="ui-block-c">
+                    <input type="text" name="outozs" id="outozs" value="o.z.">
+                </div>
+            </fieldset>
+			
+            <fieldset data-role="controlgroup" data-role="fieldcontain" id="checkboxaoutks">
+                <div class="ui-grid-d">
+                    <div class="ui-block-a">
+                         <div class="ui-bar" style="height:60px;background-color:yellow;">
+                            <input type="checkbox" name="checkboxaouts-1" id="checkboxaouts-1" value="LTP">
+                            <label for="checkboxaouts-1" id="postLTP">LTP</label>
+                        </div>
+                    </div>
+
+                    <div class="ui-block-b">
+                       <div class="ui-bar" style="height:60px;background-color:orange">
+                            <input type="checkbox" name="checkboxaouts-2" id="checkboxaouts-2" value="TTP">
+                            <label style="font-color:orange;" for="checkboxaouts-2" id="postTTP">TTP</label>
+                        </div>
+                    </div>
+                    <div class="ui-block-c">
+                         <div class="ui-bar ui-bar-c" style="height:60px;background-color:red">
+                            <input type="checkbox" name="checkboxaouts-3" id="checkboxaouts-3" value="TTP opasne">
+                            <label for="checkboxaouts-3" id="postTTPop">TTP opasne po zivot</label>
+                        </div>
+                    </div>
+					  <div class="ui-block-d">
+                        <div class="ui-bar ui-bar-c" style="height:60px;background-color:gray">
+                            <input type="checkbox" name="checkboxaouts-4" id="checkboxaouts-4" value="smrtni ishod">
+                            <label for="checkboxaouts-4" id="postsmrt">smrtni ishod</label>
+                        </div>
+                    </div>
+					 <div class="ui-block-e">
+                        <div class="ui-bar ui-bar-a" style="height:60px;background-color:AliceBlue;">
+                            <input type="checkbox" name="checkboxaouts-5" id="checkboxaouts-5" value="na lecenju" style="background-color:white;">
+                            <label for="checkboxaouts-5" id="postlek">na lecenju</label>
+                        </div>
+                </div>
+                <!-- /grid-b -->
+              
+                </div>
+                <!-- /grid-b -->
+            </fieldset>
+<input type="text" id="selektovanocheckboxaouts" name="selektovanocheckboxaouts" />
+
+            <label for="outpovredas">opis povrede</label>
+			<textarea id="outpovredas" name="outpovredas" required placeholder="opis povrede "></textarea>
+         	</div>	
+			
+	<input type="submit" value="mesto" id="outaddMestos" />
+	<ul id="outtodoItems" data-role="listview" data-inset="true" data-filter="true"></ul>
+        </div>
+        <div data-role=footer>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="../" data-direction="reverse" data-role=button></a>
+
+            </div>
+
+        </div>
+        <!-- /footer -->
+    </div>
+	<div data-role=page id=outinformacije data-add-back-btn=true>
+   <div data-role=header>
+   <br />
+    <h1></h1>
+	 <a href="../index.html" data-rel="external" data-icon="home" data-iconpos="notext" data-direction="reverse">NAZAD</a>
+	
+	 <a href="../nav.html" data-rel="external" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">PRETRAGA</a>
+	 <br />
+  </div>
+  <div data-role=content>
+  <div class="ui-grid-c">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF="#tabela" data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">TABELA</a></div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#informacije data-role=button data-transition=slideup class="ui-shadow ui-btn ui-corner-all">informacije</a></div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#izvestaj data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">IZVESTAJ</a></div></div>
+    <div class="ui-block-d"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#istorija data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">ISTORIJA</a></div></div>
+</div><!-- /grid-c -->
+ 
+  <form action="#outinformacije" id="forminformacije" method="get">
+			<h2>OStale informacije</h2>
+
+			<p></p>
+
+				<div class="ui-field-contain">
+		         <label for="outdruga">Druga lica:</label>
+		         <input type="text" name="outdruga" id="outdruga" value="">
+				</div>
+
+				<div class="ui-field-contain">
+				<label for="outsn">Uzrok SN:</label>
+				<textarea cols="40" rows="8" name="outsn" id="outsn"></textarea>
+				</div>
+				
+				<div class="ui-field-contain">
+				<label for="outop">Opis dogadjaja:</label>
+				<textarea cols="40" rows="8" name="outop" id="outop"></textarea>
+				</div>
+				
+				<div class="ui-field-contain">
+				<label for="outostalo">Ostalo</label>
+				<textarea cols="40" rows="8" name="outostalo" id="outostalo"></textarea>
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="sliderinformacije"></label>
+					<select name="sliderinformacije" id="sliderinformacije" data-role="slider">
+						<option value="off">nije </option>
+						<option value="on">   Snimi   </option>
+					</select>
+				</div>
+
+				<div class="ui-field-contain">
+					<label for="slider"></label>
+				 	<input type="range" name="slider" id="slider" value="0" min="0" max="100" data-highlight="true">
+				</div>
+
+			</form>
+     </div>
+	     <div data-role=footer>
+      <div data-role="controlgroup" data-type="horizontal">
+        <a href="../" data-direction="reverse" data-role=button></a>
+	
+      </div>
+
+    </div> <!-- /footer --> 
+	 </div>
+	 <div data-role=page id=outizvestaj data-add-back-btn=true>
+   <div data-role=header>
+   <br />
+    <h1></h1>
+	 <a href="../index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">NAZAD</a>
+	
+	 <a href="../nav.html" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">PRETRAGA</a>
+	 <br />
+  </div>
+  <div data-role=content>
+  <div class="ui-grid-c">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF="#tabela" data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">TABELA</a></div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#informacije data-role=button data-transition=slideup class="ui-shadow ui-btn ui-corner-all">INFORMACIJE</a></div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#izvestaj data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">IZVESTAJ</a></div></div>
+    <div class="ui-block-d"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#istorija data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">ISTORIJA</a></div></div>
+</div><!-- /grid-c -->
+  <form action="#" method="get">
+			<h2>Izveštaj sa terena</h2>
+
+			<p></p>
+
+				
+
+				<div class="ui-field-contain">
+				<label for="outizv"></label>
+				<textarea cols="40" rows="8" name="outizv" id="outizv"></textarea>
+				</div>
+				
+
+				<div class="ui-field-contain">
+					<label for="slider2"></label>
+					<select name="slider2" id="slider2" data-role="slider">
+						<option value="off">nije snimljeno</option>
+						<option value="on">    Snimljeno</option>
+					</select>
+				</div>
+
+			</form>
+			<form action="#" method="post">
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <legend>Subscribe to:</legend>
+              <input type="checkbox" name="posts" id="posts" />
+              <label for="posts" id="postslbl">New Posts</label>
+              <input type="checkbox" name="comments" id="comments" />
+              <label for="comments" id="commentslbl">Comments</label>
+            </fieldset>
+          </div>
+          
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+              <legend>Notify Me:</legend>
+              <input type="checkbox" name="notify" id="notify" />
+              <label for="notify">Immediately</label>
+              <input type="checkbox" name="digest" id="digest" />
+              <label for="digest">Daily Digest</label>
+            </fieldset>
+          </div>
+          
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+              <legend>Share To:</legend>
+              <input type="checkbox" name="twitter" id="twitter" />
+              <label for="twitter" id="twitterlbl">Twitter</label>
+              <input type="checkbox" name="facebook" id="facebook" />
+              <label for="facebook" id="facebooklbl">Facebook</label>
+            </fieldset>
+          </div>
+        </form>
+     </div>
+	 </div>
+	 
+	 <div data-role=page id=outistorija data-add-back-btn=true>
+	 <script>
+      // create dynamic flip switch and slider
+      $("#istoria").live("pageinit", function(event) {
+        var str="<div data-role='fieldcontain' style='width: 50%'><label for='flipswitch'>Volume:</label>"
+          + "<select name='flipswitch' id='flipswitch' data-role='slider' data-track-theme='d'>"
+          + "<option value='no'>Off</option><option value='yes'>On</option></select></div>"
+          + "<div id='volcontainer' data-role='fieldcontain' style='width: 100%'>"
+          + "<input type='range' name='volume' id='volume' value='8' min='0' max='15' data-track-theme='b' disabled /></div>";
+        $("#volumeForm").html(str).trigger("create");
+        
+      // enable the volume slider
+        $("#flipswitch").bind("change", function(event, data) {
+          if ($(this).slider().val() == "no") {
+            $("#volume").slider("disable");
+          } else {
+            $("#volume").slider("enable");
+          }
+        });
+      });
+      
+      // style the volume slider when volume threshold is crossed
+      $("#istoria").live("pageshow", function(event) {
+        $("#volume").bind("change", function(event, data) {
+          if ($(this).slider().val() > 10) {
+            $("#volcontainer").find(".ui-btn-down-b").removeClass("ui-btn-down-b").addClass("ui-btn-down-e");
+          } else {
+            $("#volcontainer").find(".ui-btn-down-e").removeClass("ui-btn-down-e").addClass("ui-btn-down-b");
+          }
+        });
+      });
+    </script>
+   <div data-role=header>
+    <br />
+    <h1></h1>
+	 <a href="../index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">NAZAD</a>
+	
+	 <a href="../nav.html" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">PRETRAGA</a>
+	 <br />
+  </div>
+  <div data-role=content>
+  <div class="ui-grid-c">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF="#tabela" data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">TABELA</a></div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#informacije data-role=button data-transition=slideup class="ui-shadow ui-btn ui-corner-all">INFORMACIJE</a></div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#izvestaj data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">IZVESTAJ</a></div></div>
+    <div class="ui-block-d"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#istorija data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">ISTORIJA</a></div></div>
+</div><!-- /grid-c -->
+  <form action="#" method="get">
+			<h2>Ostale informacije</h2>
+
+			<p></p>
+
+				<div class="ui-grid-b">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:110px">
+	<div class="ui-field-contain">
+				<label for="textarea">datum</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+				</div>
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:110px">
+	<div class="ui-field-contain">
+				<label for="textarea">Opis:</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+				</div>
+	</div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:110px">
+	<div class="ui-field-contain">
+				<label for="textarea">saradnik</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+				</div>
+	</div></div>
+</div><!-- /grid-b -->
+<div class="ui-field-contain">
+					 <form id="volumeForm" action="#" method="post"></form>
+				</div>
+</form>
+     </div>
+	 </div>
+	
+</body>
+
+</html>

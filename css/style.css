@@ -1,0 +1,448 @@
+/* Start with core styles outside of a media query that apply to mobile and up */
+/* Global typography and design elements, stacked containers */
+body { font-family: Helvetica, san-serif; }
+H1 { color: green; }
+a:link { color:purple; }
+
+/* Stack the two content containers */
+.main,
+.sidebar { display:block; width:100%; }
+
+/* First breakpoint at 576px */
+/* Inherits mobile styles, but floats containers to make columns */
+@media all and (min-width: 36em){
+	.main { float: left; width:60%; }
+	.sidebar { float: left; width:40%; }
+}
+
+/* Second breakpoint at 800px */
+/* Adjusts column proportions, tweaks base H1 */
+@media all and (min-width: 50em){
+	.main { width:70%; }
+	.sidebar { width:30%; }
+
+	/* You can also tweak any other styles in a breakpoint */
+	H1 { color: blue; font-size:1.2em }
+}
+/* Basic styles */
+.rwd .ui-body {
+    text-align: left;
+    border-color: #ddd;
+}
+.rwd p {
+    color: #777;
+    line-height: 140%
+}
+/* Stack all blocks to start */
+.rwd .ui-block-a,
+.rwd .ui-block-b,
+.rwd .ui-block-c {
+    width: 100%;
+    float: none;
+}
+/* Collapsing borders */
+.rwd > div + div .ui-body {
+    border-top-width: 0;
+}
+/* 1st breakpoint - Float B and C, leave A full width on top */
+@media all and (min-width: 42em) {
+    .rwd {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .rwd .ui-body {
+       min-height: 14em;
+    }
+    .rwd .ui-block-a{
+      float: left;
+      width: 75.075%;
+    }
+    .rwd .ui-block-b {
+      float: left;
+      width: 24.925%;
+    }
+    .rwd .ui-block-b p,
+    .rwd .ui-block-c p {
+      font-size: .8em;
+    }
+    .rwd > div + div .ui-body {
+        border-top-width: 1px;
+    }
+    .rwd > div:first-child .ui-body {
+        border-bottom-width: 0;
+    }
+    .rwd > div:last-child .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 2nd breakpoint - Float all, 50/25/25 */
+@media all and (min-width: 55em) {
+    .rwd .ui-body {
+       min-height: 18em;
+    }
+    .rwd .ui-block-a {
+      float: left;
+      width: 75.075%;
+    }
+    .rwd .ui-block-b {
+      float: left;
+      width: 24.925%;
+    }
+    .rwd > div:first-child .ui-body {
+        border-bottom-width: 1px;
+    }
+    .rwd > div + div .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 3rd breakpoint - Bump up font size at very wide screens */
+@media all and (min-width: 75em) {
+    .rwd .ui-body {
+      font-size: 125%;
+    }
+    .rwd .ui-block-a {
+      float: left;
+      width: 75.075%;
+    }
+    .rwd .ui-block-b {
+      float: left;
+      width: 24.925%;
+    }
+}
+/* Basic styles */
+.rwd .rwd2 .ui-body {
+    text-align: left;
+    border-color: #ddd;
+}
+.rwd .rwd2 p {
+    color: #777;
+    line-height: 140%
+}
+/* Stack all blocks to start */
+.rwd .rwd2 .ui-block-a,
+.rwd .rwd2 .ui-block-b,
+.rwd .rwd2 .ui-block-c {
+    width: 100%;
+    float: none;
+}
+/* Collapsing borders */
+.rwd .rwd2 > div + div .ui-body {
+    border-top-width: 0;
+}
+/* 1st breakpoint - Float B and C, leave A full width on top */
+@media all and (min-width: 42em) {
+    .rwd .rwd2 {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .rwd .rwd2 .ui-body {
+       min-height: 14em;
+    }
+    .rwd .rwd2 .ui-block-a {
+      float: left;
+      width: 20%;
+    }
+    .rwd .rwd2 .ui-block-b {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-c {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-d {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-e {
+      float: left;
+      width: 20%;
+    }
+    .rwd .rwd2 .ui-block-b p,
+    .rwd .rwd2 .ui-block-c p {
+      font-size: .8em;
+    }
+    .rwd .rwd2 > div + div .ui-body {
+        border-top-width: 1px;
+    }
+    .rwd .rwd2 > div:first-child .ui-body {
+        border-bottom-width: 0;
+    }
+    .rwd .rwd2 > div:last-child .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 2nd breakpoint - Float all, 50/25/25 */
+@media all and (min-width: 55em) {
+    .rwd .rwd2 .ui-body {
+       min-height: 18em;
+    }
+    .rwd .rwd2 .ui-block-a {
+      float: left;
+      width: 20%;
+    }
+    .rwd .rwd2 .ui-block-b {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-c {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-d {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-e {
+      float: left;
+      width: 20%;
+    }
+    .rwd .rwd2 > div:first-child .ui-body {
+        border-bottom-width: 1px;
+    }
+    .rwd .rwd2 > div + div .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 3rd breakpoint - Bump up font size at very wide screens */
+@media all and (min-width: 75em) {
+    .rwd .rwd2 .ui-body {
+      font-size: 125%;
+    }
+    .rwd .rwd2 .ui-block-a {
+      float: left;
+      width: 20%;
+    }
+    .rwd .rwd2 .ui-block-b {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-c {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-d {
+      float: left;
+      width: 20%;
+    }
+	.rwd .rwd2 .ui-block-e {
+      float: left;
+      width: 20%;
+    }
+}
+/* Basic styles */
+.rwd .rwd3 .ui-body {
+    text-align: left;
+    border-color: #ddd;
+}
+.rwd .rwd3 p {
+    color: #777;
+    line-height: 140%
+}
+/* Stack all blocks to start */
+.rwd .rwd3 .ui-block-a,
+.rwd .rwd3 .ui-block-b,
+.rwd .rwd3 .ui-block-c 
+.rwd .rwd3 .ui-block-d
+.rwd .rwd3 .ui-block-e
+.rwd .rwd3 .ui-block-f{
+    width: 100%;
+    float: none;
+}
+/* Collapsing borders */
+.rwd .rwd3 > div + div .ui-body {
+    border-top-width: 0;
+}
+/* 1st breakpoint - Float B and C, leave A full width on top */
+@media all and (min-width: 42em) {
+    .rwd .rwd3 {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .rwd .rwd3 .ui-body {
+       min-height: 14em;
+    }
+    .rwd .rwd3 .ui-block-a {
+      float: left;
+      width: 16.65%;
+    }
+    .rwd .rwd3 .ui-block-b {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-c {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-d {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-e {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-f {
+      float: left;
+      width: 16.65%;
+    }
+    .rwd .rwd3 .ui-block-b p,
+    .rwd .rwd3 .ui-block-c p {
+      font-size: .8em;
+    }
+    .rwd .rwd3 > div + div .ui-body {
+        border-top-width: 1px;
+    }
+    .rwd .rwd3 > div:first-child .ui-body {
+        border-bottom-width: 0;
+    }
+    .rwd .rwd3 > div:last-child .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 2nd breakpoint - Float all, 50/25/25 */
+@media all and (min-width: 55em) {
+    .rwd .rwd3 .ui-body {
+       min-height: 18em;
+    }
+    .rwd .rwd3 .ui-block-a {
+      float: left;
+      width: 16.65%;
+    }
+    .rwd .rwd3 .ui-block-b {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-c {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-d {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-e {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-f {
+      float: left;
+      width: 16.65%;
+    }
+    .rwd .rwd3 > div:first-child .ui-body {
+        border-bottom-width: 1px;
+    }
+    .rwd .rwd3 > div + div .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 3rd breakpoint - Bump up font size at very wide screens */
+@media all and (min-width: 75em) {
+    .rwd .rwd3 .ui-body {
+      font-size: 125%;
+    }
+    .rwd .rwd3 .ui-block-a {
+      float: left;
+      width: 16.65%;
+    }
+    .rwd .rwd3 .ui-block-b {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-c {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-d {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-e {
+      float: left;
+      width: 16.65%;
+    }
+	.rwd .rwd3 .ui-block-f {
+      float: left;
+      width: 16.65%;
+    }
+}
+/* Basic styles */
+.rwd .rwd4 .ui-body {
+    text-align: left;
+    border-color: #ddd;
+}
+.rwd .rwd4 p {
+    color: #777;
+    line-height: 140%
+}
+/* Stack all blocks to start */
+.rwd .rwd4 .ui-block-a,
+.rwd .rwd4 .ui-block-b{
+    width: 100%;
+    float: none;
+}
+/* Collapsing borders */
+.rwd .rwd3 > div + div .ui-body {
+    border-top-width: 0;
+}
+/* 1st breakpoint - Float B and C, leave A full width on top */
+@media all and (min-width: 42em) {
+    .rwd .rwd4 {
+        overflow: hidden; /* Use this or a "clearfix" to give the container height */
+    }
+    .rwd .rwd4 .ui-body {
+       min-height: 14em;
+    }
+    .rwd .rwd4 .ui-block-a {
+      float: left;
+      width: 50%;
+    }
+	.rwd .rwd4 .ui-block-b {
+      float: left;
+      width: 50%;
+    }
+    .rwd .rwd4 .ui-block-b p,
+    .rwd .rwd4 .ui-block-c p {
+      font-size: .8em;
+    }
+    .rwd .rwd4 > div + div .ui-body {
+        border-top-width: 1px;
+    }
+    .rwd .rwd4 > div:first-child .ui-body {
+        border-bottom-width: 0;
+    }
+    .rwd .rwd4 > div:last-child .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 2nd breakpoint - Float all, 50/25/25 */
+@media all and (min-width: 55em) {
+    .rwd .rwd4 .ui-body {
+       min-height: 18em;
+    }
+    .rwd .rwd4 .ui-block-a {
+      float: left;
+      width: 50%;
+    }
+	.rwd .rwd4 .ui-block-b {
+      float: left;
+      width: 50%;
+    }
+    .rwd .rwd3 > div:first-child .ui-body {
+        border-bottom-width: 1px;
+    }
+    .rwd .rwd3 > div + div .ui-body {
+        border-left-width: 0;
+    }
+}
+/* 3rd breakpoint - Bump up font size at very wide screens */
+@media all and (min-width: 75em) {
+    .rwd .rwd4 .ui-body {
+      font-size: 125%;
+    }
+	.rwd .rwd4 .ui-block-e {
+      float: left;
+      width: 50%;
+    }
+	.rwd .rwd4 .ui-block-f {
+      float: left;
+      width: 50%;
+    }
+}

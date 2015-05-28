@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title></title>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="js/jqm-docs.js"></script>
+	 <link rel="stylesheet" href="css/jqm-docs.css" />
+<script src="js/jquery.js"></script>
+<script src="js/dbmesto.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/jquery.mobile-1.4.2.min.js"></script>
+  <link rel="stylesheet" href="l.css">
+   <script>
+$(document).on('pagebeforeshow', '#stat', function(){    
+    // Add a new select element    
+    $('<select>').attr({'name':'select-choice-1','id':'select-choice-1','data-native-menu':'false'}).appendTo('[data-role="header"]');
+    $('<option>').html('Select option!').appendTo('#select-choice-1');
+    $('<option>').attr({'value':'1'}).html('Value 1').appendTo('#select-choice-1');
+    $('<option>').attr({'value':'2'}).html('Value 2').appendTo('#select-choice-1');    
+    // Enhance new select element
+    $('select').selectmenu();
+    
+    $(document).on('change', '#select-choice-1', function(){   
+    var dirName = $.mobile.path.get( $( this ).attr( "#select-choice-1" ) );
+	var selektovano = $(this).find("option:selected").text();
+    $( "#myResult" ).html( String( dirName ) );	
+        alert($(this).find("option:selected").text());
+		 $("#idl").attr("href", "/new/url");
+    });    
+    
+});
+</script>
+</head>
+<body>
+<div data-role=page id=stat>
+  <div data-role=header>
+    <h1>
+	<a href="index.html" data-rel="external" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">start</a>
+    <a href="saradnici.html" data-rel="external" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">saradnici</a>
+    <a href="stat.html" data-rel="external" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">statistika</a>
+ </h1>
+<h3></h3>
+	
+  </div>
+
+  <div data-role=content>
+  <div data-role="controlgroup" data-type="horizontal">
+  <label for="select-choice-g" class="select">godina</label>
+<select name="select-choice-g" id="select-choice-g">
+    <option value="2014"><a href="2013/">2014</a></option>
+    <option value="2013"><a href="2013/">2013</a></option>
+    <option value="2012"><a href="2012/">2012</a></option>
+    <option value="2011">2011</option>
+</select> 
+
+<label for="select-choice-mesec" class="select">mesec</label>
+<select name="select-choice-mesec" id="select-choice-god">
+    <option value="januar">januar</option>
+    <option value="februar"><a href="#pagetwo">februar</a></option>
+    <option value="mart">mart</option>
+    <option value="april">april</option>
+	<option value="maj">maj</option>
+	<option value="jun">jun</option>
+	<option value="jul">jul</option>
+	<option value="avgust">avgust</option>
+	<option value="septembar">septembar</option>
+	<option value="oktobar">oktobar</option>
+	<option value="novembar">novembar</option>
+	<option value="decembar">decembar</option>
+</select> 
+<form>
+<div class="ui-field-contain">
+    <label for="select-native-mesto"></label>
+    <select name="select-native-mesto" id="select-native-mesto">
+    </select>
+</div>
+</form>
+  </div>
+   <div class="content-secondary">
+   	
+ <ul data-role="listview" data-inset="true" data-theme=c data-dividertheme=b>
+				<li></li>
+					<!-- menu position helper -->
+		 
+			</ul>
+		
+    </div>
+	
+				<div class="content-primary">
+					
+			<nav>
+<ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b">
+					<li></li>
+					</ul>
+			</nav>
+	</div>
+			</div>
+ 
+<div data-role="footer">
+      <div data-role="controlgroup" data-type="horizontal">
+         	<a href="novi.html" data-rel="external" data-transition="flip" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">novi</a>
+<a href="stat.html" data-rel="external" data-transition="turn" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">izmeni</a>
+<a href="kontakt.html" data-rel="external" data-transition="flow" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">kontakt</a>
+ </div>
+
+    </div> <!-- /footer --> 
+</div>
+
+<script>
+d3.json("http://localhost:8070/stojan2/mydata.json", function(data){
+var canvas = d3.select("nav").append("svg").attr("width", 500).attr("height", 500)
+canvas.selectAll("rect").data(data).enter().append("rect").attr("width", function(d){return d.age*10;}).attr("height", 50)
+.attr("y", function(d, i){return i*10;})
+.attr("fill", blue)
+canvas.selectAll("text").data(data).enter().append("text").attr("fill", whie)
+.attr("y", function(d, i){return i*50 + 24})
+.text(function(d){return d.name;})
+})
+</script>
+<div data-role=page id=i data-add-back-btn=true>
+   <div data-role=header>
+    <br />
+    <h1></h1>
+	 <a href="../index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">NAZAD</a>
+	
+	 <a href="../nav.html" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">PRETRAGA</a>
+	 <br />
+  </div>
+  <div data-role=content>
+  <div class="ui-grid-c">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF="#tabela" data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">TABELA</a></div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#informacije data-role=button data-transition=slideup class="ui-shadow ui-btn ui-corner-all">NALOZI</a></div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#izvestaj data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">NALOZI</a></div></div>
+    <div class="ui-block-d"><div class="ui-bar ui-bar-b" style="height:60px"><a HREF=#istorija data-role=button data-transition=slideup data-rel="external" class="ui-shadow ui-btn ui-corner-all">NALOZI</a></div></div>
+</div><!-- /grid-c -->
+  <form action="#" method="get">
+			<h2>Ostale informacije</h2>
+
+			<p></p>
+
+				<div class="ui-grid-b">
+    <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:110px">
+	<div class="ui-field-contain">
+				<label for="textarea">datum</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+				</div>
+	</div></div>
+    <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:110px">
+	<div class="ui-field-contain">
+				<label for="textarea">Opis:</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+				</div>
+	</div></div>
+    <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:110px">
+	<div class="ui-field-contain">
+				<label for="textarea">saradnik</label>
+				<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+				</div>
+	</div></div>
+</div><!-- /grid-b -->
+
+				
+				
+				
+				
+				
+
+				<div class="ui-field-contain">
+					<label for="slideristorija"></label>
+					<select name="slideristorija" id="slideristorija" data-role="slider">
+						<option value="off">nije </option>
+						<option value="on">    Snimljeno    </option>
+					</select>
+				</div>
+
+				
+
+			</form>
+     </div>
+	 </div>
+</body>
+</html> 

@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="load.js">
+</script>
+</head>
+<body>
+<div>
+<b>To:</b> <input name="to" id="to"/><br>
+<b>From:</b> <input name=" from" id="from"/><br>
+<b>Message:</b> <input name="message" id="message"/>
+</div>
+ <A HREF="notes.xml" onClick="sendRequest('notes.xml',handleRequest())">nklfsz</a>
+<script>
+$(document).ready(function(){
+$.ajax({
+url: './getEvents.php',
+data:'numnull',
+type:'GET',
+success: function(callback)
+{
+var Events = $(callback).find('event');
+$(Event).each(function(){
+var title = $(this).find('name').text();
+var descr = $(this).find('descr').text();
+var time = $(this).find('time').text();
+var date = $(this).find('date').text();
+var fav = ($(this).find('fav').text() == 'true' ? '':'');
+$("#home_list").append('<li data-role="list-divider">' + date + '</li><li><h3>' + title + '</h3></li>');
+$("#home_list").listview("refresh");
+});
+$.mobile.changePage("#index", "slide", true);
+},
+error.function(xhr, ajaxOptions, thrownError){
+alert(xhr.status);
+alert(throwError);
+}
+});
+});
+</script>
+
+</body>
+</html>
